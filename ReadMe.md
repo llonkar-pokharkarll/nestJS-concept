@@ -1,1 +1,1 @@
-- This branch contains basic CRUD operations in nestJS.
+- This branch contains basic CRUD operations in nestJS with Validation and Error Handling methods.
