@@ -1,8 +1,8 @@
 import { BaseEntity, PrimaryGeneratedColumn, Column, Entity } from 'typeorm';
-import { TaskStatus } from './taskStatus.enum';
+import { EventStatus } from './eventStatus.enum';
 
 @Entity()
-export class Task extends BaseEntity {
+export class Event extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
     @Column()
@@ -10,5 +10,5 @@ export class Task extends BaseEntity {
     @Column()
     description: string;
     @Column()
-    status: TaskStatus;
+    status: EventStatus;
 }

@@ -1,5 +1,5 @@
 import { IsNotEmpty } from 'class-validator';
-export class createTaskDTO {
+export class createEventDTO {
   @IsNotEmpty()
   title: string;
 

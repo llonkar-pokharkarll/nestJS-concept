@@ -1,4 +1,4 @@
-export enum TaskStatus {
+export enum EventStatus {
     OPEN = 'OPEN',
     IN_PROGRESS = 'IN_PROGRESS',
     CLOSE = 'CLOSE',

@@ -1,8 +1,8 @@
 import { ValidationPipe, BadRequestException, PipeTransform } from '@nestjs/common';
-import { TaskStatus } from '../taskStatus.enum';
+import { EventStatus } from '../eventStatus.enum';
 
-export class TaskStatusValidationPipe implements PipeTransform {
-  readonly allowedStatus = [TaskStatus.OPEN, TaskStatus.CLOSE, TaskStatus.IN_PROGRESS];
+export class EventStatusValidationPipe implements PipeTransform {
+  readonly allowedStatus = [EventStatus.OPEN, EventStatus.CLOSE, EventStatus.IN_PROGRESS];
   transform(value: any) {
     const val = value.toUpperCase();
 
