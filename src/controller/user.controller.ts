@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Delete, Patch, Param, Body, Put } from '@nestjs/common';
+import { Controller, Get, Post, Delete, Patch, Param, Body, Put, ValidationPipe } from '@nestjs/common';
 import { UserService } from '../service/user.service';
 import { createUserDTO } from '../DTO/createUserDTO';
 
@@ -7,28 +7,29 @@ export class UserController {
   constructor(
     private userservice: UserService,
   ) { }
+
   @Get()
   getUser() {
-    return this.userservice.getAllEvent();
+    return this.userservice.getAllUser();
   }
 
   @Get('/:id')
   getUserById(@Param('id') id: string) {
-    return this.userservice.getEventById(id);
+    return this.userservice.getUserById(id);
   }
 
   @Post()
-  createUser(@Body() createuserDTO: createUserDTO) {
-    return this.userservice.createEvent(createuserDTO);
+  createUser(@Body(ValidationPipe) createuserDTO: createUserDTO) {
+    return this.userservice.createUser(createuserDTO);
   }
 
   @Delete('/:id')
   deleteUser(@Param('id') id: string) {
-    return this.userservice.deleteEvent(id);
+    return this.userservice.deleteUser(id);
   }
 
-  @Put()
-  updateUser(@Body() newUser: createUserDTO) {
-    return this.userservice.updateEvent(newUser);
+  @Put('/:id')
+  updateUser(@Param('id') id: string, @Body() data: Partial<createUserDTO>) {
+    return this.userservice.updateUser(id, data);
   }
 }
